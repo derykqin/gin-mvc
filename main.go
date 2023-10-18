@@ -1,15 +1,16 @@
 package main
 
 import (
-	"derykqin/gin-mvc/logs"
+	"derykqin/gin-mvc/core/cache"
+	"derykqin/gin-mvc/core/log"
 	"derykqin/gin-mvc/routes"
 
 	"github.com/gin-gonic/gin"
 )
 
 func init() {
-	//初始化日志框架logrus
-	logs.InitLogrus()
+	log.InitLogrus()  //初始化日志框架logrus
+	cache.InitRedis() //初始化redis
 }
 
 func main() {
