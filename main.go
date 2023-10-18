@@ -11,14 +11,14 @@ import (
 
 func init() {
 	//初始化日志框架logrus
-	log.SetFormatter(&log.JSONFormatter{})
-	// log.SetReportCaller(true)
-	log.SetLevel(log.InfoLevel)
+	log.SetFormatter(&log.JSONFormatter{}) //text formatter or json formatter
+	// log.SetReportCaller(true)//添加记录日志方法
+	log.SetLevel(log.InfoLevel) //info level
 	writer, err := os.OpenFile("./logs/log.txt", os.O_WRONLY|os.O_CREATE, 0755)
 	if err != nil {
 		log.Fatalf("create file log.txt failed: %v", err)
 	}
-	log.SetOutput(io.MultiWriter(os.Stdout, writer)) //可以多输出
+	log.SetOutput(io.MultiWriter(os.Stdout, writer)) //输出多个通道
 
 }
 
